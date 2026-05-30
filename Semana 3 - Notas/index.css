@@ -1,0 +1,257 @@
+
+:root {
+    --bg:        #fdf0f0;
+    --surface:   #ffffff;
+    --border:    #ecddd4;
+    --accent:    #d45a5a;
+    --accent-lt: #f5e4d9;
+    --text:      #2e1f14;
+    --muted:     #9e8076;
+    --danger:    #c9614a;
+    --shadow:    0 2px 16px rgba(100,50,20,.08);
+    --radius:    14px;
+}
+
+
+*, *::before, *::after { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 60px 16px 80px;
+}
+
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 480px;
+    padding: 40px 36px 36px;
+    animation: fadeUp .45s ease both;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+.header {
+    margin-bottom: 28px;
+}
+
+.header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--text);
+    line-height: 1.15;
+}
+
+.header h1 em {
+    font-style: italic;
+    color: var(--accent);
+}
+
+.header p {
+    margin-top: 6px;
+    font-size: 13.5px;
+    color: var(--muted);
+    font-weight: 300;
+}
+
+.form-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+#inputNota {
+    flex: 1;
+    padding: 11px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--bg);
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+#inputNota::placeholder { 
+    color: var(--muted); 
+}
+
+#inputNota:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-lt);
+}
+
+#btnAgregar {
+    padding: 11px 20px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background .2s, transform .1s;
+    white-space: nowrap;
+}
+
+#btnAgregar:hover  { 
+    background: #c24848; 
+}
+#btnAgregar:active { 
+    transform: scale(.97); 
+}
+
+/* ── mensaje de error ── */
+#mensaje {
+    font-size: 12.5px;
+    color: var(--danger);
+    min-height: 18px;
+    margin-bottom: 20px;
+    padding-left: 4px;
+    opacity: 0;
+    transition: opacity .25s;
+}
+
+#mensaje.visible { 
+    opacity: 1; 
+}
+
+
+.list-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.list-header span {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.list-header hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid var(--border);
+}
+
+#contador {
+    font-size: 11px;
+    font-weight: 500;
+    background: var(--accent-lt);
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 2px 9px;
+}
+
+/* ── lista ── */
+#listaNotas {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+.empty-state {
+    text-align: center;
+    padding: 32px 0 20px;
+    color: var(--muted);
+    font-size: 13.5px;
+}
+
+.empty-state .icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    display: block;
+    opacity: .5;
+}
+
+
+#listaNotas li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    animation: slideIn .25s ease both;
+    transition: border-color .2s;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+#listaNotas li:hover { 
+    border-color: #d9baba;
+}
+
+#listaNotas li .nota-texto {
+    flex: 1;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+#listaNotas li .bullet {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    opacity: .7;
+}
+
+/* botón eliminar */
+#listaNotas li button {
+    flex-shrink: 0;
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    padding: 4px 9px;
+    cursor: pointer;
+    transition: background .15s, color .15s, border-color .15s;
+}
+
+#listaNotas li button:hover {
+    background: #fce8e3;
+    color: var(--danger);
+    border-color: #f3c0c0;
+}
+
+/* animación de salida */
+#listaNotas li.removing {
+    animation: slideOut .2s ease forwards;
+}
+
+@keyframes slideOut {
+    to { opacity: 0; transform: translateX(10px); max-height: 0; padding: 0; margin: 0; }
+}

@@ -1,0 +1,95 @@
+// 1 
+//lista de personajes de Hello Kitty con id's, nombre y precios
+const characters = {
+  char1: { id: 1, nombre: "Hello Kitty",   precio: 500 },
+  char2: { id: 2, nombre: "My Melody",     precio: 750 },
+  char3: { id: 3, nombre: "Cinnamoroll",   precio: 600 },
+  char4: { id: 4, nombre: "Pompompurin",   precio: 650 },
+  char5: { id: 5, nombre: "Kuromi",        precio: 1200 },
+  char6: { id: 6, nombre: "Badtz-Maru",    precio: 900 },
+  char7: { id: 7, nombre: "Chococat",      precio: 800 },
+};
+console.log("objeto de personajes:");
+console.log(characters);
+
+// 2
+//guardas los valores unicos y los repetidos los ignora
+const characterIds = new Set([1, 2, 3, 2, 1, 4, 3, 5, 6, 6, 7, 5]);
+console.log("\nset de ids unicos:");
+console.log(characterIds);
+//agrega el id 8 al set
+characterIds.add(8);
+console.log("despues de agregar 8:", characterIds);
+//verifica que el id existe
+console.log("existe el 3?", characterIds.has(3));
+console.log("existe el 99?", characterIds.has(99));
+//elimina el id 5 del set
+characterIds.delete(5);
+console.log("despues de eliminar 5:", characterIds);
+//recorre cada id del set
+console.log("ids en el set:");
+for (const id of characterIds) {
+  console.log(" -", id);
+}
+
+//  3 
+//el map() relaciona el tipo de personaje con su nombre
+const characterMap = new Map();
+characterMap.set("gato blanco",   "Hello Kitty");
+characterMap.set("conejo rosa",   "My Melody");
+characterMap.set("perrito azul",  "Cinnamoroll");
+characterMap.set("perrito dorado","Pompompurin");
+characterMap.set("conejo morado", "Kuromi");
+characterMap.set("pinguino negro","Badtz-Maru");
+characterMap.set("gato negro",    "Chococat");
+console.log("\nmap de categorias:");
+console.log(characterMap);
+
+// 4
+//el for...in recorre las claves del objeto
+console.log("\nfor...in sobre el objeto:");
+for (const clave in characters) {
+  const p = characters[clave];
+  console.log(`${clave}: ${p.nombre} - $${p.precio}`);
+}
+//muestra solo las claves
+console.log("\nobject.keys:", Object.keys(characters));
+//muestra solo los valores
+console.log("\nobject.values:", Object.values(characters));
+//muestra clave y valor juntos
+console.log("object.entries")
+Object.entries(characters).forEach(([clave, valor]) => {
+  console.log(`${clave} =>`, valor);
+});
+//foreach recorre el map mostrando los tipos y los nombres
+console.log("\nforeach sobre el map:")
+characterMap.forEach((nombre, categoria) => {
+  console.log(`categoria: ${categoria} | personaje: ${nombre}`);
+});
+
+// 5
+//funcion para verificar si un personaje tiene un dato valido
+const validaPersonaje = (personaje) => {
+  //retorna false si falta id, nombre o precio
+  if (!personaje.id || !personaje.nombre || !personaje.precio) return false;
+  //retorna false si el precio no es numero o es negativo
+  if (typeof personaje.precio !== "number" || personaje.precio <= 0) return false;
+  return true;
+}
+//personaje valido
+personajeValido   = { id: 8, nombre: "Keroppi",  precio: 950 };
+//personaje invalido
+personajeInvalido = { id: 9, nombre: "", precio: -200 };
+console.log("\nValidaciones");
+console.log("Keroppi valido?:", validaPersonaje(personajeValido));
+console.log("invalido pasa?:", validaPersonaje(personajeInvalido));
+//agrega a Keroppi si pasa la validacion
+if (validaPersonaje(personajeValido)) {
+  characters.char8 = personajeValido;
+  console.log("Keroppi agregado con exito")
+};
+//muestra el estado final de las 3 estructuras
+console.log("\nResultado final:");
+console.log("Personajes (objeto):", characters);
+console.log("Ids (set):",           characterIds);
+console.log("Categorias (map):",    characterMap);

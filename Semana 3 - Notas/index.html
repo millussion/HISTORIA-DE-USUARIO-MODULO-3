@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="card">
+
+  <div class="header">
+    <h1>Mis <em>notitas</em></h1>
+    <p>Escribe una nota y presiona <em>"Agregar"</em> para guardarla.</p>
+  </div>
+
+  <div class="form-row">
+    <input type="text" id="inputNota" placeholder="Escribe tu nota aquí…" autocomplete="off" />
+    <button id="btnAgregar">Agregar</button>
+  </div>
+
+  <p id="mensaje"></p>
+
+  <div class="list-header">
+    <span>Notas</span>
+    <hr>
+    <span id="contador">0</span>
+  </div>
+
+  <ul id="listaNotas"></ul>
+
+</div>
+
+<script src="notas.js"></script>
+
+</body>
+</html>

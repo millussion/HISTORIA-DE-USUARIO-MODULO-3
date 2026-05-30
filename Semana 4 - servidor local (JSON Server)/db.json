@@ -1,0 +1,54 @@
+{
+  "characters": [
+    {
+      "id": "1",
+      "name": "Hello Kitty",
+      "type": "Cat",
+      "personality": "Sweet & Friendly",
+      "color": "White",
+      "image": "🐱"
+    },
+    {
+      "id": "2",
+      "name": "My Melody",
+      "type": "Rabbit",
+      "personality": "Gentle & Kind",
+      "color": "Pink",
+      "image": "🐰"
+    },
+    {
+      "id": "3",
+      "name": "Cinnamoroll",
+      "type": "Puppy",
+      "personality": "Shy & Playful",
+      "color": "White",
+      "image": "🐶"
+    },
+    {
+      "id": "4",
+      "name": "Pompompurin",
+      "type": "Golden Retriever",
+      "personality": "Lazy & Cheerful",
+      "color": "Yellow",
+      "image": "🐕"
+    },
+    {
+      "id": "5",
+      "name": "Keroppi",
+      "type": "Frog",
+      "personality": "Energetic & Curious",
+      "color": "Green",
+      "image": "🐸"
+    },
+    {
+      "name": "Camila",
+      "type": "Rabbit",
+      "personality": "Sweet",
+      "color": "Pink Cloud",
+      "image": "🥺",
+      "id": "3KnSFHdY53E",
+      "_source": "api"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

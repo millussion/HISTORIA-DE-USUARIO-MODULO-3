@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Kitty Personajes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <h1 class="logo">Sanrio World</h1>
+            <p class="tagline">Administra tus personajes favoritos</p>
+        </div>
+    </header>
+
+    <div id="feedback" class="feedback hidden"></div>
+
+    <main class="main">
+
+        <section class="form-section">
+            <h2 class="section-title">✨ Agregar personaje</h2>
+
+            <form id="character-form">
+                <div class="field">
+                    <label for="name">Nombre</label>
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Ej: Hello Kitty"
+                        autocomplete="off"
+                    >
+                    <span class="field-error" id="error-name"></span>
+                </div>
+
+                <div class="field">
+                    <label for="type">Tipo de animal</label>
+                    <input
+                        type="text"
+                        id="type"
+                        placeholder="Ej: Cat, Rabbit..."
+                        autocomplete="off"
+                    >
+                    <span class="field-error" id="error-type"></span>
+                </div>
+
+                <div class="field">
+                    <label for="personality">Personalidad</label>
+                    <input
+                        type="text"
+                        id="personality"
+                        placeholder="Ej: Sweet & Friendly"
+                        autocomplete="off"
+                    >
+                    <span class="field-error" id="error-personality"></span>
+                </div>
+
+                <div class="field">
+                    <label for="color">Color principal</label>
+                    <input
+                        type="text"
+                        id="color"
+                        placeholder="Ej: Pink, White..."
+                        autocomplete="off"
+                    >
+                    <span class="field-error" id="error-color"></span>
+                </div>
+
+                <div class="field">
+                    <label for="image">Emoji 🐾</label>
+                    <input
+                        type="text"
+                        id="image"
+                        placeholder="Ej: 🐱"
+                        autocomplete="off"
+                        maxlength="4"
+                    >
+                    <span class="field-error" id="error-image"></span>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        Agregar personaje
+                    </button>
+                    <button type="button" id="btn-sync" class="btn btn-secondary">
+                        🔄 Sincronizar con API
+                    </button>
+                </div>
+
+            </form>
+        </section>
+
+        <section class="list-section">
+            <div class="list-header">
+                <h2 class="section-title">Personajes</h2>
+                <span id="count-badge" class="count-badge">0</span>
+            </div>
+
+            <div id="empty-state" class="empty-state">
+                <p>✨</p>
+                <p>No hay personajes aún.<br>¡Agrega el primero!</p>
+            </div>
+
+            <ul id="characters-list" class="characters-list"></ul>
+        </section>
+
+    </main>
+
+    <!-- ══════════════════════════════════════
+         MODAL DE EDICIÓN (PUT)
+    ══════════════════════════════════════ -->
+    <div id="edit-modal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <h3>✏️ Editar personaje</h3>
+
+            <input type="hidden" id="edit-id">
+
+            <div class="field">
+                <label for="edit-name">Nombre</label>
+                <input type="text" id="edit-name">
+                <span class="field-error" id="error-edit-name"></span>
+            </div>
+
+            <div class="field">
+                <label for="edit-personality">Personalidad</label>
+                <input type="text" id="edit-personality">
+            </div>
+
+            <div class="field">
+                <label for="edit-color">Color</label>
+                <input type="text" id="edit-color">
+            </div>
+
+            <div class="modal-actions">
+                <button id="btn-save-edit" class="btn btn-primary">💾 Guardar</button>
+                <button id="btn-cancel-edit" class="btn btn-ghost">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js" type="module"></script>
+</body>
+</html>
