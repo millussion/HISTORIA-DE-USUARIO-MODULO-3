@@ -1,4 +1,4 @@
-# 🎀 Sanrio World
+# Sanrio World
 
 Mini aplicación web con persistencia y consumo de API.
 
